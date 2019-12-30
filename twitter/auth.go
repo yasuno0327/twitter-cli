@@ -6,14 +6,16 @@ import (
 	"net/http"
 )
 
+//AuthConfig config
 type AuthConfig struct {
 	APIKey    string
 	APISecret string
 }
 
+//AuthResponse response
 type AuthResponse struct {
-	TokenType   string `"json":"token_type"`
-	AccessToken string `"json":"access_token"`
+	TokenType   string `json:"token_type"`
+	AccessToken string `json:"access_token"`
 }
 
 func (config *AuthConfig) getBearerToken() (string, error) {
@@ -23,8 +25,8 @@ func (config *AuthConfig) getBearerToken() (string, error) {
 	var response *http.Response
 	var body []byte
 	var authRes AuthResponse
-	var authUrl = "https://api.twitter.com/oauth2/token?grant_type=client_credentials"
-	request, err := http.NewRequest("POST", authUrl, nil)
+	var authURL = "https://api.twitter.com/oauth2/token?grant_type=client_credentials"
+	request, err := http.NewRequest("POST", authURL, nil)
 	if err != nil {
 		return "", err
 	}
