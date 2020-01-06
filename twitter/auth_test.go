@@ -9,7 +9,7 @@ func TestGetBearerTokenSuccess(t *testing.T) {
 	apiKey := os.Getenv("TWITTER_API_KEY")
 	apiSecret := os.Getenv("TWITTER_API_SECRET")
 	config := AuthConfig{APIKey: apiKey, APISecret: apiSecret}
-	token, err := config.getBearerToken()
+	token, err := config.GetBearerToken()
 	if err != nil {
 		t.Fatal(err)
 	}
