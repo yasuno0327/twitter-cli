@@ -18,7 +18,7 @@ type AuthResponse struct {
 	AccessToken string `json:"access_token"`
 }
 
-//GetBearerToken Get authorization token for twitter api request
+//GetBearerToken Get access token from twitter api
 func (config *AuthConfig) GetBearerToken() (string, error) {
 	var apiKey = config.APIKey
 	var apiSecret = config.APISecret
